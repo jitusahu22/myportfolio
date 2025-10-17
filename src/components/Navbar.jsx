@@ -1,9 +1,6 @@
-import { useTheme } from "../context/ThemeContext";
-import { FaMoon, FaSun } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -36,15 +33,7 @@ export default function Navbar() {
             <a href="#contact">Contact</a>
           </li>
         </ul>
-
-        <button
-          onClick={toggleTheme}
-          className="ml-6 p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-yellow-300"
-        >
-          {theme === "dark" ? <FaSun /> : <FaMoon />}
-        </button>
       </div>
     </nav>
   );
 }
-

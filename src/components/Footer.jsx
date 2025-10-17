@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-400 py-6">
       <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto px-6">
-        <p>© {new Date().getFullYear()} Jitendra. Made with ❤️ in React.</p>
+        <p>© {new Date().getFullYear()} Jitendra Sahu | Full Stack Developer</p>
         <div className="flex gap-6 mt-4 md:mt-0">
           <a
             href={LINKEDIN}
