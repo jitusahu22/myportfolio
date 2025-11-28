@@ -1,22 +1,33 @@
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import { ReactTyped } from "react-typed";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import Particles from "@tsparticles/react";
 import { useCallback } from "react";
+import { loadSlim } from "@tsparticles/slim";
 import { motion } from "framer-motion";
 
 export default function Hero() {
-  // Particles init
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+    await loadSlim(engine);
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white overflow-hidden">
-      {/* Particles Background */}
+    <section
+      className="relative h-screen flex flex-col justify-center items-center text-center text-white overflow-hidden px-4 sm:px-6 lg:px-8"
+      style={{
+        backgroundImage: "url('/pro_background1.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Dark overlay for better visibility */}
+      <div className="absolute inset-0 bg-black bg-opacity-70 -z-10"></div>
+
+      {/* Particles */}
       <Particles
         id="tsparticles"
         init={particlesInit}
+        className="absolute inset-0 -z-10"
         options={{
           background: { color: "transparent" },
           fpsLimit: 60,
@@ -36,11 +47,10 @@ export default function Hero() {
             size: { value: { min: 1, max: 4 } },
           },
         }}
-        className="absolute inset-0 -z-10"
       />
 
-      {/* Sticky Social Icons */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-4 z-20">
+      {/* Floating Social Icons */}
+      <div className="fixed right-4 sm:right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-4 z-20">
         {[
           {
             Icon: FaLinkedin,
@@ -58,54 +68,48 @@ export default function Hero() {
             label: "Email",
           },
         ].map(({ Icon, link, label }, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.2 }}
-            className="group relative flex items-center"
-          >
+          <motion.div key={i} whileHover={{ scale: 1.2 }} className="group relative flex items-center">
             <a
               href={link}
               target="_blank"
               rel="noreferrer"
               className="bg-gray-800 hover:bg-indigo-600 text-white p-3 rounded-full shadow-lg transition"
             >
-              <Icon className="text-xl" />
+              <Icon className="text-xl sm:text-2xl" />
             </a>
-            {/* Tooltip */}
-            <span className="absolute right-full mr-3 px-2 py-1 text-sm bg-black text-white rounded opacity-0 group-hover:opacity-100 transition">
+            <span className="absolute right-full mr-3 px-2 py-1 text-sm bg-black text-white rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
               {label}
             </span>
           </motion.div>
         ))}
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-3xl px-6">
-        {/* Profile Image Animation */}
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl w-full flex flex-col items-center">
+        {/* Profile Image */}
         <motion.img
           src="myimage.jpg"
           alt="Profile"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-44 h-44 md:w-56 md:h-56 rounded-full mx-auto border-4 border-indigo-600 shadow-lg object-cover"
+          transition={{ duration: 0.8 }}
+          className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-full border-4 border-indigo-600 shadow-lg object-cover"
         />
 
         <motion.h1
-          initial={{ y: -50, opacity: 0 }}
+          initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-5xl md:text-7xl font-bold mt-6"
+          transition={{ duration: 1 }}
+          className="text-3xl sm:text-5xl md:text-7xl font-bold mt-6"
         >
           Hi, I'm Jitendra
         </motion.h1>
 
-        {/* Typing Effect */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-4 text-lg md:text-2xl text-gray-300"
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-3 sm:mt-4 text-md sm:text-xl md:text-2xl text-gray-300"
         >
           <ReactTyped
             strings={[
@@ -119,25 +123,26 @@ export default function Hero() {
           />
         </motion.p>
 
-        {/* Buttons Animation */}
+        {/* Buttons */}
         <motion.div
-          className="flex justify-center gap-6 mt-6"
-          initial={{ y: 50, opacity: 0 }}
+          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-4 sm:mt-6"
+          initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 1 }}
         >
           <motion.a
-            whileHover={{ scale: 1.1 }}
-            href="/Jitendraa CV Resume.pdf"
+            whileHover={{ scale: 1.05 }}
+            href="/JitendraResume1.pdf"
             download
-            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-lg transition"
+            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-lg transition w-full sm:w-auto text-center"
           >
             Download Resume
           </motion.a>
+
           <motion.a
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             href="#projects"
-            className="px-6 py-3 border border-indigo-600 hover:bg-indigo-600 rounded-lg transition"
+            className="px-6 py-3 border border-indigo-600 hover:bg-indigo-600 rounded-lg transition w-full sm:w-auto text-center"
           >
             View My Work
           </motion.a>

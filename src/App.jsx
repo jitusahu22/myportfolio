@@ -17,7 +17,7 @@ export default function App() {
         <About />
         <Skills/>
         <Projects />
-        <Timeline />
+        {/* <Timeline /> */}
         <Contact />
         <Footer />
       </div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export default function Skills() {
-  const skills = [
+   const skills = [
     {
       name: "HTML",
       desc: "Markup language for creating web pages.",
@@ -80,42 +80,49 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white"
+      className="py-16 sm:py-20 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white"
     >
-      <div className="max-w-6xl mx-auto text-center px-6">
-        <h2 className="text-4xl font-bold mb-12">My Skills</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {" "}
+      <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        {" "}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-12">
+          My Skills
+        </h2>{" "}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           {skills.map((skill, i) => (
             <motion.a
               key={i}
               href={skill.link}
-              target="_blank"
+              target="*blank"
               rel="noreferrer"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.4,
-                delay: i * 0.10,
+                delay: i * 0.08,
                 ease: "easeInOut",
                 type: "spring",
                 stiffness: 80,
                 damping: 15,
               }}
-              viewport={{ once: true, amount: 0.3 }} // 👈 sirf ek baar animate karega
-              className="bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition p-6 flex flex-col items-center text-center 
-            border border-transparent hover:border-indigo-500 hover:shadow-[0_0_20px_#6366f1]"
+              viewport={{ once: true, amount: 0.3 }}
+              className="bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition p-6 flex flex-col items-center text-center
+border border-transparent hover:border-indigo-500 hover:shadow-[0_0_20px*#6366f1]"
             >
+              {" "}
               <img
                 src={skill.img}
                 alt={skill.name}
-                className="w-16 h-16 mb-4"
-              />
-              <h3 className="text-xl font-semibold">{skill.name}</h3>
-              <p className="text-gray-400 mt-2 text-sm">{skill.desc}</p>
+                className="w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4 object-contain"
+              />{" "}
+              <h3 className="text-lg sm:text-xl font-semibold">{skill.name}</h3>{" "}
+              <p className="text-gray-400 mt-1 sm:mt-2 text-xs sm:text-sm">
+                {skill.desc}
+              </p>
             </motion.a>
-          ))}
-        </div>
-      </div>
+          ))}{" "}
+        </div>{" "}
+      </div>{" "}
     </section>
   );
 }
