@@ -132,7 +132,7 @@ export default function Hero() {
         >
           <motion.a
             whileHover={{ scale: 1.05 }}
-            href="/JitendraResume1.pdf"
+            href="/Jitendra1.pdf"
             download
             className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-lg transition w-full sm:w-auto text-center"
           >

@@ -7,8 +7,8 @@ export default function Projects() {
       desc: "A single page game also known as Rock Paper Scissor game. Using HTML, CSS and Javascript previously then converted it in React",
       img: "roshambo.png",
       stack: ["React", "CSS"],
-      demo: "#",
-      github: "#",
+      demo: "https://stonepaper-rinz.onrender.com",
+      github: "https://github.com/jitusahu22/JS_Project_1",
     },
     {
       title: "Help Hub",
@@ -16,15 +16,15 @@ export default function Projects() {
       img: "justdial.png",
       stack: ["React", "Django", "Tailwind"],
       demo: "#",
-      github: "#",
+      github: "https://github.com/jitusahu22/Help-Hub",
     },
     {
       title: "Portfolio Website",
       desc: "A responsive portfolio built with React & TailwindCSS.",
       img: "./myportfolio.png",
       stack: ["React", "TailwindCSS"],
-      demo: "#",
-      github: "#",
+      demo: "https://myportfolio-j17o.onrender.com",
+      github: "https://github.com/jitusahu22/myportfolio",
     },
   ];
 
