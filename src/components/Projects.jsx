@@ -15,7 +15,7 @@ export default function Projects() {
       desc: "A local service provider which helps job seekers and job providers. I used React, Tailwind and Django RestAPI",
       img: "justdial.png",
       stack: ["React", "Django", "Tailwind"],
-      demo: "#",
+      demo: "https://help-hubb.vercel.app/",
       github: "https://github.com/jitusahu22/Help-Hub",
     },
     {
